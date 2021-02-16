@@ -1,5 +1,44 @@
 <div class="main">
   <div class="main-content">
+    <div class="new-main">
+      <div class="new-content">
+        <div class="wide-content-article">
+          <article class="article">
+            <div class="wpcf7">
+              <div class="error-form">
+                <%= form_for(@proverb) do |f| %>
+                  <% if @proverb.errors.any? %>
+                    <h3 class="error">
+                      入力した内容にエラーが<%= @proverb.errors.count %>件あります
+                    </h3>
+                    <ul class="error-point">
+                      <% @proverb.errors.full_messages.each do |message| %>
+                        <li class="error-point-item">
+                          <p class="message">
+                            <%= message %>
+                          </p>
+                        </li>
+                      <% end %>
+                    </ul>
+                  <% end %>
+                  <div class="place-space">
+                    <%= f.label :proverb, "場所名", {class: 'place-logo'} %>
+                    <%= f.text_field :proverb,:placeholder => "例: ”海賊王”に!!!おれはなるっ!!!!", class: "place" %>
+                  </div>
+                  <div class="address-space">
+                    <%= f.label :owner, "場所", {class: 'address-logo'} %>
+                    <%= f.text_area :owner,:placeholder => "例:　モンキー・D・ルフィ", class: "address" %>
+                  </div>
+                  <div class="send">
+                    <%= f.submit  "名言投稿", class: "send-buttom" %>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+        </article>
+      </div>
+    </div>
+  </div>
      <div class="wide-content">
       <div class="loop">
          <%= render partial: "proverb", collection: @proverb %>
