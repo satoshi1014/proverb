@@ -14,10 +14,10 @@
   <div class="btn-area">
     <ul class="btn-space">
       <li class="btn-space-edit show-btn">
-        <%= link_to '編集', "/spots/#{@proverb.id}/edit", class: "show-edit-btn" %>
+        <%= link_to '編集', "/words/#{@proverb.id}/edit", class: "show-edit-btn" %>
       </li>
       <li class="btn-space-delete show-btn">
-        <%= link_to '削除', "/spots/#{@proverb.id}", method: :delete, class: "show-delete-btn" %>
+        <%= link_to '削除', "/words/#{@proverb.id}", method: :delete, class: "show-delete-btn" %>
       </li>
     </ul>
   </div>
@@ -26,7 +26,7 @@
     <div class="comment-form">
       <%= form_with(model:[@proverb, @comment], method: :post, class: "comment-main-form") do |f| %>
         <%= f.text_area :comment_content, class: "comment-form-area" %>
-        <%= f.hidden_field :spot_id, value: @proverb.id %>
+        <%= f.hidden_field :word_id, value: @proverb.id %>
         <%= f.submit 'コメントする', class: "comment-form-btn" %>
       <% end %>
     </div>
