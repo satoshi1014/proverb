@@ -14,19 +14,15 @@
     <header class="header">
       <div class="nav_area">
         <p class="header-title">
-          <a href="#" class="opa">
-            Proverb
-          </a>
+          <%= link_to 'Proverb', root_path, class: "opa" %>
         <ul class="h_nav">
           <li class="logo">
-            <a href="#" class="header-mypage-btn btn">
+            <a href="/users/<%= current_user.id %>" class="header-mypage-btn btn">
               マイページ
             </a>
           </li>
           <li class="logo">
-            <a href="#" class="header-sign-out-btn btn">
-              サインアウト
-            </a>
+            <%= link_to 'サインアウト', destroy_user_session_path, class: "header-sign-out-btn btn", method: :delete %>
           </li>
         </ul>
       </div>

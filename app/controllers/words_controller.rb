@@ -1,8 +1,11 @@
 class WordsController < ApplicationController
   def index
     @proverbs = Word.order("created_at DESC").page(params[:page]).per(6)
-    @proverb = Word.new
   end
+  
+  def new
+    @proverb = Word.new
+  end 
 
   def show
     @proverb = Word.find(params[:id])
