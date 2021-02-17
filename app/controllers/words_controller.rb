@@ -4,6 +4,12 @@ class WordsController < ApplicationController
     @proverb = Word.new
   end
 
+  def show
+    @proverb = Word.find(params[:id])
+    @comments = @proverb.comments
+    @comment = current_user.comments.new
+  end
+
   def create
     @proverb = Word.new(proverb_params)
     if @proverb.save

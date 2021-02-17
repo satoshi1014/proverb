@@ -1,0 +1,58 @@
+<div class="new-main">
+  <div class="new-content">
+    <h2 class="throw-spot">
+      <a href="/users/<%= @proverb.user.id %>" class="thorw-spot-btn">
+        <%= @proverb.user.username %>
+      </a>
+      <span>
+        さんの投稿
+      </span>
+    </h2>
+  </div>
+  
+  <% if current_user.id == @proverb.user.id %>
+  <div class="btn-area">
+    <ul class="btn-space">
+      <li class="btn-space-edit show-btn">
+        <%= link_to '編集', "/spots/#{@proverb.id}/edit", class: "show-edit-btn" %>
+      </li>
+      <li class="btn-space-delete show-btn">
+        <%= link_to '削除', "/spots/#{@proverb.id}", method: :delete, class: "show-delete-btn" %>
+      </li>
+    </ul>
+  </div>
+  <% end %>
+  <div class="comment-area">
+    <div class="comment-form">
+      <%= form_with(model:[@proverb, @comment], method: :post, class: "comment-main-form") do |f| %>
+        <%= f.text_area :comment_content, class: "comment-form-area" %>
+        <%= f.hidden_field :spot_id, value: @proverb.id %>
+        <%= f.submit 'コメントする', class: "comment-form-btn" %>
+      <% end %>
+    </div>
+    <div class="comment-display">
+      <h2 class="comment-title">
+        コメント一覧
+      </h2>
+      <% unless @comments.present? %>
+        <p class="comment-nil">
+          ※　まだコメントはありません
+        <p>
+      <% else %>
+        <div class="comment-items">
+          <% @comments.each do |comment| %>
+            <p class="comment-core">
+              <%= image_tag comment.user.image, class: "comment-user-image" %>
+              <span class="comment-user">
+                <%= comment.user.username %>:
+              </span>     
+              <span class="comment-content">
+                <%=  comment.comment_content %>
+              </span>
+            </p>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
