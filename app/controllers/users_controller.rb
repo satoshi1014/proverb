@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
-    @proverb = @user.words.order("created_at DESC").page(params[:page]).per(6)
+    # @user = @user.page(params[:page])
+    @proverbs = @user.words.order("created_at DESC").page(params[:page]).per(6)
   end 
 
   def edit 

@@ -39,7 +39,9 @@
           <%= render partial: "words/proverb", collection: @proverbs %>
         <% end %> 
       </div>
-      <%= paginate @proverbs %>
+      <% if @proverbs.present? %>
+          <%= paginate @proverbs %>
+        <% end %>
      </div>
   </div>
 </div> 
