@@ -22,11 +22,11 @@
                     </ul>
                   <% end %>
                   <div class="place-space">
-                    <%= f.label :proverb, "場所名", {class: 'place-logo'} %>
+                    <%= f.label :proverb,"名言", {class: 'place-logo'} %>
                     <%= f.text_field :proverb,:placeholder => "例: ”海賊王”に!!!おれはなるっ!!!!", class: "place" %>
                   </div>
                   <div class="address-space">
-                    <%= f.label :owner, "場所", {class: 'address-logo'} %>
+                    <%= f.label :owner, "キャラ", {class: 'address-logo'} %>
                     <%= f.text_area :owner,:placeholder => "例:　モンキー・D・ルフィ", class: "address" %>
                   </div>
                   <div class="send">
@@ -41,9 +41,15 @@
   </div>
      <div class="wide-content">
       <div class="loop">
-         <%= render partial: "proverb", collection: @proverb %>
+        <% if @proverbs.present? %>
+          <%= render partial: "proverb", collection: @proverbs %>
+        <% else %>
+          <p class="proverb-nil">
+            ※　まだ投稿がありません
+          </p>
+        <% end %>
       </div>
-      <%= paginate @proverb %>
+      <%= paginate @proverbs %>
      </div>
   </div>
 </div>
