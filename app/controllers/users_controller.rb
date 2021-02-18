@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     # @user = @user.page(params[:page])
-    @proverbs = @user.words.order("created_at DESC").page(params[:page]).per(6)
+    @proverbs = @user.words.order("created_at DESC").page(params[:page]).per(9)
   end 
 
   def edit 
@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-      render action: :show
+      redirect_to user_path(@user)
     else
       render action: :edit
     end 

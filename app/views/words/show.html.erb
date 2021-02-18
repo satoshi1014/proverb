@@ -63,15 +63,19 @@
       <% else %>
         <div class="comment-items">
           <% @comments.each do |comment| %>
+            <div class="comment-occupy">
             <p class="comment-core">
               <%= image_tag comment.user.image, class: "comment-user-image" %>
               <span class="comment-user">
                 <%= comment.user.username %>:
-              </span>     
+              </span> 
+            </p>
+            <p class="comment-core-content">    
               <span class="comment-content">
                 <%=  comment.comment_content %>
               </span>
             </p>
+            </div>
           <% end %>
         </div>
       <% end %>

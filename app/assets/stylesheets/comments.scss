@@ -23,4 +23,27 @@ input.comment-form-btn {
 }
 .comment-display {
     margin-top: 30px;
+    width: 280px;
+}
+img.comment-user-image {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    /* margin-top: -70px; */
+    margin-bottom: -15px;
+    margin-right: 10px;
+    object-fit: cover;
+}
+span.comment-user {
+    display: block;
+    margin: -20px 0 -20px 60px;
+}
+p.comment-core-content {
+    margin-top: 50px;
+}
+.comment-occupy {
+    background-color: #80808040;
+    border-radius: 3px;
+    padding: 5px;
+    margin: 2px;
 }

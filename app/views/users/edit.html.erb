@@ -1,7 +1,7 @@
 <div class="new-main">
   <div class="wide-content-article">
     <article class="article">
-      <div class="user-wpcf7">
+      <div class="wpcf7">
         <div class="error-form">
           <%= form_for(@user) do |f| %>
             <% if @user.errors.any? %>
@@ -18,7 +18,6 @@
                 <% end %>
               </ul>
             <% end %>
-          </div>
           <div class="name-space">
             <%= f.label :username, "ユーザーネーム", {class: 'name-logo'} %>
             <%= f.text_field :username, class: "name-area" %>
@@ -27,8 +26,8 @@
             <%= f.label :image, "ユーザー写真", {class: 'image-logo'} %>
             <%= f.file_field :image, class: "image" %>
           </div> 
-          <div class="user-send">
-            <%= f.submit  "Send", class: "user-send-buttom" %>
+          <div class="send">
+            <%= f.submit  "編集", class: "send-buttom" %>
           </div>
         <% end %>
       </div>
