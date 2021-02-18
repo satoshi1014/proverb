@@ -26,6 +26,10 @@
             <%= f.label :owner, "キャラ", {class: 'address-logo'} %>
             <%= f.text_field :owner,:placeholder => "例:　モンキー・D・ルフィ", class: "address" %>
           </div>
+          <div class="story-space">
+            <%= f.label :story, "ストーリーや感想など", {class: 'story-logo'} %>
+            <%= f.text_area :story, class: "story" %>
+          </div>
           <div class="send">
             <%= f.submit  "名言投稿", class: "send-buttom" %>
           </div>

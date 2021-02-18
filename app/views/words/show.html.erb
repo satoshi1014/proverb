@@ -1,16 +1,11 @@
 <div class="new-main">
   <div class="new-content">
-    <h2 class="throw-spot">
-      <a href="/users/<%= @proverb.user.id %>" class="thorw-spot-btn">
-        <%= @proverb.user.username %>
-      </a>
-      <span>
-        さんの投稿
-      </span>
+    <h2 class="show-owner">
+      <%= @proverb.owner %><span class="show-owner-span">の名言</span>
     </h2>
-  </div>
+    <div class="btn-throw-area">
+    <% if current_user.id == @proverb.user.id %>
   
-  <% if current_user.id == @proverb.user.id %>
   <div class="btn-area">
     <ul class="btn-space">
       <li class="btn-space-edit show-btn">
@@ -22,6 +17,33 @@
     </ul>
   </div>
   <% end %>
+    <h2 class="throw-spot">
+      <a href="/users/<%= @proverb.user.id %>" class="thorw-spot-btn">
+        <%= @proverb.user.username %>
+      </a>
+      <span>
+        さんの投稿
+      </span>
+    </h2>
+  </div>
+</div>
+<div class="show-comment">
+  <div class="show">
+    <div class="show-space">
+      <h2 class="word-title">
+        名言
+      </h2>
+      <h2 class="show-area">
+        <%= @proverb.proverb %>
+      </h2>
+      <h2 class="show-owner-area">
+         <%= @proverb.owner %>
+      </h2>
+      <p class="show-story">
+        <%= @proverb.story%>
+      </p>
+    </div>
+</div>
   <div class="comment-area">
     <div class="comment-form">
       <%= form_with(model:[@proverb, @comment], method: :post, class: "comment-main-form") do |f| %>
@@ -55,4 +77,5 @@
       <% end %>
     </div>
   </div>
+</div>
 </div>

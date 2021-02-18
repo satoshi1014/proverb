@@ -11,11 +11,17 @@
   </head>
 
   <body>
+  <% unless %w[new_user_session new_user_registration].any? { |name| current_page?(send("#{name}_path")) } %> 
     <header class="header">
       <div class="nav_area">
         <p class="header-title">
-          <%= link_to 'Proverb', root_path, class: "opa" %>
+          <%= link_to 'ワンピース名言集', root_path, class: "opa" %>
         <ul class="h_nav">
+          <li class="logo">
+            <a href="/words/new" class="header-new-btn btn">
+              名言投稿
+            </a>
+          </li>
           <li class="logo">
             <a href="/users/<%= current_user.id %>" class="header-mypage-btn btn">
               マイページ
@@ -27,6 +33,7 @@
         </ul>
       </div>
     </header>
+    <% end %>
     <%= yield %>
   </body>
 </html>

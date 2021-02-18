@@ -1,6 +1,6 @@
 class WordsController < ApplicationController
   def index
-    @proverbs = Word.order("created_at DESC").page(params[:page]).per(6)
+    @proverbs = Word.order("created_at DESC").page(params[:page]).per(9)
   end
   
   def new
@@ -43,7 +43,7 @@ class WordsController < ApplicationController
 
   private
   def proverb_params
-    params.require(:word).permit(:proverb, :owner).merge(user_id: current_user.id)
+    params.require(:word).permit(:proverb, :owner,:story).merge(user_id: current_user.id)
   end
 end
 
